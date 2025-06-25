@@ -14,7 +14,7 @@ from .settings import SeleniumSettings
 logger: logging.Logger = logging.getLogger(f"ScrapeJob.{__name__}")
 
 class SeleniumDriver:
-    def __init__(self, setting=SeleniumSettings) -> None:
+    def __init__(self, setting=SeleniumSettings()) -> None:
         self.headless: bool= setting.headless
         self.agent: str = setting.agent
         self.implicit_wait: int = setting.implicit_wait
@@ -25,7 +25,7 @@ class SeleniumDriver:
         
         self.driver: webdriver.Chrome | None = None
     
-    def init_selenium(self) -> webdriver.Chrome | None :
+    def init_selenium(self) -> webdriver.Chrome | None:
         logger.info("Initializing Selenium WebDriver...")
         
         try:

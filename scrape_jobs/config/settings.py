@@ -2,9 +2,7 @@ import os
 
 from pathlib import Path
 from dotenv import load_dotenv
-
-from typing import Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 
 # Load environment variables from .env file
@@ -28,8 +26,9 @@ class SeleniumSettings:
     agent: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
     
     use_chromium: bool = True
-    chromium_path: str = "E:\\Utility\\Chromedriver\\chrome_win\\chrome.exe"
-    chromedriver_path: str = "E:\\Utility\\Chromedriver\\chromedriver_win32\\chromedriver.exe"
+    chromium_path: str = field(default_factory=lambda: os.getenv("chromium_path", ""))
+    chromedriver_path: str = field(default_factory=lambda: os.getenv("chromedriver_path", ""))
+
 
 # Wait Time settings
 class WaitTime(int, Enum):
