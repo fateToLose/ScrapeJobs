@@ -1,0 +1,12 @@
+[project]
+name = "scrap-jobs"
+version = "0.1.0"
+description = "Simple web scraper for collecting job posting data from popular job boards."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "selenium>=4.33.0",
+]
